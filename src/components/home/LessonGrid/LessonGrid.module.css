@@ -8,7 +8,7 @@
 }
 
 .heading {
-  font-size: var(--font-4xl);
+  font-size: var(--font-3xl);
   font-weight: 400;
   letter-spacing: var(--letter-xl);
   margin: 0 0 var(--space-6);
@@ -53,6 +53,12 @@
 @media (min-width: 640px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .heading {
+    font-size: var(--font-4xl);
   }
 }
 
