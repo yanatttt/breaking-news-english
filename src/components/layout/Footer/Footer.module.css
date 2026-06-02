@@ -1,0 +1,134 @@
+.footer {
+  background: var(--surface-container-high);
+  border-top: 1px solid var(--outline);
+  padding: var(--space-9) var(--grid-margin) var(--space-6);
+}
+
+.inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+.brand {}
+
+.logo {
+  font-size: var(--font-lg);
+  font-weight: 600;
+  color: var(--on-surface);
+}
+
+.tagline {
+  font-size: var(--font-sm);
+  color: var(--on-surface-variant);
+  max-width: 260px;
+  margin: var(--space-3) 0 var(--space-4);
+  line-height: var(--lh-base);
+}
+
+.socialRow {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.socialRow button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--outline);
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 150ms ease;
+}
+
+.socialRow button:hover {
+  background: var(--surface-container-highest);
+}
+
+.socialRow button .material-symbols-outlined {
+  font-size: 20px;
+  color: var(--on-surface-variant);
+}
+
+.linkCol {}
+
+.colTitle {
+  font-size: var(--font-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--on-surface-variant);
+  margin-bottom: var(--space-3);
+}
+
+.linkCol a {
+  display: block;
+  font-size: var(--font-sm);
+  color: var(--on-surface);
+  line-height: 2.2;
+  transition: color 150ms ease;
+}
+
+.linkCol a:hover {
+  color: var(--on-surface-variant);
+}
+
+.levelLink {
+  color: var(--blue-800) !important;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--outline);
+  margin: var(--space-2) 0;
+}
+
+.bottomBar {
+  margin-top: var(--space-6);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--outline);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  font-size: var(--font-xs);
+  color: var(--on-surface-variant);
+}
+
+.bottomLinks {
+  display: flex;
+  gap: var(--space-4);
+}
+
+.bottomLinks a {
+  font-size: var(--font-xs);
+  color: var(--on-surface-variant);
+  transition: color 150ms ease;
+}
+
+.bottomLinks a:hover {
+  color: var(--on-surface);
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: var(--space-9);
+  }
+}

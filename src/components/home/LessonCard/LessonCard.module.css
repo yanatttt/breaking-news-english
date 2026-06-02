@@ -1,0 +1,130 @@
+.card {
+  background: var(--surface);
+  border: 1px solid var(--card-border);
+  border-radius: var(--shape-lg);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(33, 34, 38, 0.08);
+}
+
+.imageArea {
+  aspect-ratio: 16 / 9;
+  background: var(--surface-container-higher);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.imageArea > .material-symbols-outlined {
+  font-size: 48px;
+  color: var(--grey-300);
+}
+
+.bookmarkBtn {
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-2);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 150ms ease;
+}
+
+.bookmarkBtn:hover {
+  background: rgba(255, 255, 255, 1);
+}
+
+.bookmarkBtn .material-symbols-outlined {
+  font-size: 24px;
+  color: var(--grey-600);
+}
+
+.bookmarkBtn .bookmarkedIcon {
+  color: var(--blue-800);
+}
+
+.body {
+  padding: var(--space-4);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.tagRow {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.diffChip {
+  border-radius: var(--shape-rounded);
+  padding: 4px var(--space-2);
+  font-size: var(--font-xs);
+  font-weight: 500;
+}
+
+.harder {
+  background: var(--blue-10);
+  color: var(--blue-800);
+}
+
+.easier {
+  background: var(--green-10);
+  color: var(--green-800);
+}
+
+.topicChip {
+  background: var(--surface-container);
+  color: var(--on-surface-variant);
+  border-radius: var(--shape-rounded);
+  padding: 4px var(--space-2);
+  font-size: var(--font-xs);
+}
+
+.title {
+  font-size: var(--font-md);
+  font-weight: 500;
+  line-height: var(--lh-md);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin: 0 0 var(--space-2);
+  flex: 1;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  font-size: var(--font-xs);
+  color: var(--on-surface-variant);
+}
+
+.cefrBadge {
+  border: 1px solid var(--outline);
+  border-radius: var(--shape-xs);
+  padding: 2px 6px;
+  font-weight: 700;
+}
+
+.dot {
+  color: var(--grey-300);
+}
