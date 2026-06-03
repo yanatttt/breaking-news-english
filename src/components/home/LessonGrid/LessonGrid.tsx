@@ -3,13 +3,14 @@
 import { useState } from "react"
 import useStore from "@/lib/useStore"
 import LessonCard from "@/components/home/LessonCard/LessonCard"
+import Box from "@mui/material/Box"
+import Typography from "@mui/material/Typography"
+import Button from "@mui/material/Button"
 import type { Lesson } from "@/lib/types"
 import lessonsDataRaw from "@/lib/lessonsData.json"
 import mockData from "@/lib/mockData"
-import styles from "./LessonGrid.module.css"
 
 const allLessons: Lesson[] = (lessonsDataRaw.length > 0 ? lessonsDataRaw : mockData) as Lesson[]
-
 const PAGE_SIZE = 9
 
 export default function LessonGrid() {
@@ -32,35 +33,60 @@ export default function LessonGrid() {
   const hasMore = visible.length < filtered.length
 
   return (
-    <section className={styles.section} id="lessons">
-      <div className={styles.inner}>
-        <h2 className={styles.heading}>Latest lessons</h2>
-        <div className={styles.grid}>
-          {visible.map((lesson) => (
-            <LessonCard
-              key={lesson.id}
-              lesson={lesson}
-              isBookmarked={bookmarks.includes(lesson.id)}
-              onToggleBookmark={toggleBookmark}
-            />
-          ))}
-        </div>
+    <Box
+      component="section"
+      id="lessons"
+      sx={{ py: { xs: 5, md: 7 }, px: { xs: 2, md: 3.5 } }}
+    >
+      <Box sx={{ maxWidth: 1440, mx: "auto" }}>
+        <Typography
+          variant="h3"
+          sx={{ fontWeight: 400, letterSpacing: "-0.01em", mb: 4 }}
+        >
+          Latest lessons
+        </Typography>
 
-        {filtered.length === 0 && (
-          <p className={styles.empty}>No lessons match your filters.</p>
+        {filtered.length === 0 ? (
+          <Typography
+            sx={{ py: 8, color: "text.secondary", textAlign: "center" }}
+          >
+            No lessons match your filters.
+          </Typography>
+        ) : (
+          <Box
+            sx={{
+              display: "grid",
+              gridTemplateColumns: {
+                xs: "1fr",
+                sm: "repeat(2, 1fr)",
+                lg: "repeat(3, 1fr)",
+              },
+              gap: 3.5,
+            }}
+          >
+            {visible.map((lesson) => (
+              <LessonCard
+                key={lesson.id}
+                lesson={lesson}
+                isBookmarked={bookmarks.includes(lesson.id)}
+                onToggleBookmark={toggleBookmark}
+              />
+            ))}
+          </Box>
         )}
 
         {hasMore && (
-          <div className={styles.loadMoreRow}>
-            <button
-              className={styles.loadMoreBtn}
+          <Box sx={{ display: "flex", justifyContent: "center", mt: 6 }}>
+            <Button
+              variant="outlined"
+              size="large"
               onClick={() => setPage((p) => p + 1)}
             >
-              Load more
-            </button>
-          </div>
+              Load more lessons
+            </Button>
+          </Box>
         )}
-      </div>
-    </section>
+      </Box>
+    </Box>
   )
 }
